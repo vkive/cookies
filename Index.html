@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Cookie Consent Box</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <img src="cookies1.png">
+            <div class="content">
+                <header>Cookies Constent</header>
+                <p>This website use cookies to ensure you get the besr experience</p>
+                <div class="buttons">
+                    <button class="item">I understand</button>
+                    <a href="#" class="item">Learn more</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            const cookieBox = document.querySelector(".wrapper"),
+            acceptBtn = cookieBox.querySelector(".buttons button");
+
+            acceptBtn.onclick = ()=>{
+                document.cookie = "CookieBy=Vkive; max-age="+60 * 60 * 24 * 30;
+                if (document.cookie) {
+                    cookieBox.classList.add("hide");
+                } else {
+                    alert("Cookie can't be set!");
+                }
+            }
+            let checkCookie = document.cookie.indexOf("CookieBy=Vkive");
+            checkCookie != -1 ? cookieBox.classList.add("hide"): cookieBox.classList.remove("hide");
+
+
+        </script>
+    </body>
+</html>
